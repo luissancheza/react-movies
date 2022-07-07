@@ -7,11 +7,11 @@ export function Search() {
     const [searchParams] = useSearchParams();
     const search = searchParams.get('search');
 
-    // useEffect(() => {
-    //     setSearchText(search || "");
-    // }, [search]);
+    useEffect(() => {
+        setSearchText(search || "");
+    }, [search]);
 
-    // const [searchText, setSearchText] = useState("");
+    const [searchText, setSearchText] = useState("");
     const navigate = useNavigate();
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -23,7 +23,7 @@ export function Search() {
                 <input className={styles.searchInput} 
                 placeholder="Title"
                 aria-label="Search Movies"
-                type="text" value={search} 
+                type="text" value={searchText} 
                 onChange={(e) => {
                     const value = e.target.value;
                     // setSearchText(search);
